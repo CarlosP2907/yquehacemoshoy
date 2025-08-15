@@ -1,0 +1,182 @@
+Ok vamos a realizar primero un analisis de lo que vamos a hacer
+teniendo en cuenta que basicamente somos vos y yo contra el mundo, vamos a hacer pairprogramming
+de manera que nos vamos a intentar apoyar como si fuesemos un equipo para realizar este proyecto
+
+La app consiste en un "buscador de lugares" los cuales se van a afiliar con nosotros, van a haber planes tanto para las empresas como para los usuarios
+nos centramos en hacer que las personas salgan y conozcan el mundo, aunque por ahora tenemos un enfoque un poco mas pequeño ya que vamos a comenzar en Costa Rica
+
+Basado en esto necesito hacer un MVP para poder lanzar al mercado como prueba y realizar un estudio de mercado para ver que mejorar y que hacer para que los resultados de la app sean
+notables
+
+para los usuarios solo estan los usuarios normales y los usuarios premium (esto asociado a un plan premium individual)
+las empresas pueden ingresar gratis y hacer publicaciones como si fuese una red social, mas con el plan gratuito solo puede realizar una publicacion por mes
+el plan comercio puede realizar 5 por mes y el plan empresarial puede realizar 10 por mes (esto como parametros para comenzar)
+
+ademas, el usuario debe poder comentar, poder editar su perfil y personalizarlo a gusto
+
+tambien esta el plan de implementar Artificial Intelligence para realizar una agenda segun los gustos del usuario
+
+en si la app consiste en que la persona pueda ubicarse y ver todos los lugares a los que puede ir cerca de el, ademas funciona como filtro de actividades dependiendo del nicho que busque
+esto se debe manejar por la ubicacion de la persona, los gustos e intereses que tiene y la frecuencia con la que sale, si sale con amigos, familia, etc etc etc
+
+Como ves la idea?
+me puedes ayudar?
+creo que para los usuarios, roles y el login inicial podriamos utilizar laravel Spatie y breeze
+
+ademas utilizar templates para que el manejo de las vistas sea mas sencillo y mas ordenado
+
+me ayudas?
+
+-------------------------------------------------------------------------------------------------------------------------
+Entidades
+
+User
+    id
+    name
+    email
+    password
+    type (normal/premium)
+    interests
+    location
+    profile_photo
+    description
+
+Company
+
+id
+
+name
+
+email
+
+password
+
+plan (free/business/enterprise)
+
+description
+
+logo
+
+location
+
+Post
+
+id
+
+company_id
+
+title
+
+content
+
+image
+
+publish_date
+
+Comment
+
+id
+
+user_id
+
+post_id
+
+content
+
+date
+
+Place
+
+id
+
+name
+
+description
+
+location
+
+type (restaurant, bar, park, etc.)
+
+image
+
+Plan
+
+id
+
+name (free, business, enterprise, premium)
+
+type (user/company)
+
+price
+
+allowed_posts
+
+description
+
+Subscription
+
+id
+
+user_id or company_id
+
+plan_id
+
+start_date
+
+end_date
+
+status
+
+Category
+
+id
+
+name
+
+description
+
+Interest
+
+id
+
+name
+
+description
+
+Place_Interest (pivot)
+
+place_id
+
+interest_id
+
+Event (for special activities/events)
+
+id
+
+place_id
+
+name
+
+description
+
+start_date
+
+end_date
+
+Reaction (like or other)
+
+id
+
+user_id
+
+post_id
+
+type (like, love, etc.)
+
+Image (gallery for places or posts)
+
+id
+
+place_id or post_id
+
+url
