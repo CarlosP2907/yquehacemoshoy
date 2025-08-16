@@ -27,6 +27,7 @@
     --gradient-primary: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-primary-dark) 100%);
     --gradient-light: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     --gradient-overlay: linear-gradient(rgba(53, 151, 68, 0.9), rgba(1, 66, 32, 0.9));
+    --gradient-hero: linear-gradient(135deg, #359744 0%, #014220 100%);
 
     /* Sombras */
     --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -71,91 +72,78 @@ body {
     font-weight: var(--font-weight-normal);
     line-height: 1.6;
     color: var(--bs-text-dark);
-    background-color: var(--bs-gray-light);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
 }
 
 /* ==================================================
-   COMPONENT STYLES
+   TEXT UTILITIES
    ================================================== */
 
-/* --- Backgrounds --- */
-.custom-gradient {
-    background: var(--gradient-primary);
+.text-green {
+    color: var(--bs-primary) !important;
+}
+
+.text-white-80 {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.text-white-90 {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.text-features {
+    color: #6c757d !important;
+}
+
+/* ==================================================
+   HERO SECTION
+   ================================================== */
+
+.hero-section {
+    background: var(--gradient-hero);
     min-height: 100vh;
+    display: flex;
+    align-items: center;
     position: relative;
+    padding: 5rem 0;
     overflow: hidden;
 }
 
-.custom-gradient::before {
+.hero-section::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>') repeat;
-    pointer-events: none;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="30" cy="30" r="2"/></g></svg>');
+    z-index: 1;
 }
 
-/* --- Text --- */
-.text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.text-white-70 { color: rgba(255, 255, 255, var(--opacity-70)); }
-.text-white-80 { color: rgba(255, 255, 255, var(--opacity-80)); }
-.text-white-90 { color: rgba(255, 255, 255, var(--opacity-90)); }
-
-/* --- Buttons --- */
-.btn {
-    font-weight: var(--font-weight-medium);
-    border-radius: var(--border-radius);
-    transition: var(--transition-base);
+.hero-section > .container {
     position: relative;
-    overflow: hidden;
+    z-index: 2;
 }
 
-.btn-primary {
-    background: var(--gradient-primary);
-    border: none;
-    box-shadow: var(--shadow-colored);
-    color: var(--bs-white);
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: white !important;
 }
 
-.btn-primary:hover {
-    background: linear-gradient(135deg, var(--bs-primary-dark) 0%, #002612 100%);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-weight: var(--font-weight-normal);
+    margin-bottom: 2rem;
+    opacity: 0.9;
 }
 
-.btn-outline-primary {
-    border: 2px solid var(--bs-primary);
-    color: var(--bs-primary);
-    background: transparent;
-}
+/* ==================================================
+   CARDS & FEATURES
+   ================================================== */
 
-.btn-outline-primary:hover {
-    background: var(--gradient-primary);
-    color: var(--bs-white);
-    transform: translateY(-1px);
-}
-
-.btn-lg {
-    padding: 0.75rem 2rem;
-    font-size: 1.125rem;
-    border-radius: var(--border-radius-lg);
-}
-
-.btn:active {
-    transform: scale(0.98);
-}
-
-/* --- Cards --- */
 .card {
     border: none;
     border-radius: var(--border-radius-lg);
@@ -170,13 +158,15 @@ body {
     box-shadow: var(--shadow-xl);
 }
 
-.card-header {
-    background: var(--gradient-light);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    font-weight: var(--font-weight-semibold);
+.card-body {
+    padding: 2rem;
 }
 
-/* --- Feature Cards --- */
+.card.bg-primary {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+}
+
 .feature-card {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
@@ -186,6 +176,8 @@ body {
     transition: var(--transition-base);
     position: relative;
     overflow: hidden;
+    height: 100%;
+    box-shadow: var(--shadow);
 }
 
 .feature-card::before {
@@ -210,6 +202,14 @@ body {
     opacity: 1;
 }
 
+.feature-card h3 {
+    color: var(--bs-text-dark) !important;
+}
+
+.feature-card p {
+    color: var(--bs-text-muted) !important;
+}
+
 .feature-icon {
     width: 64px;
     height: 64px;
@@ -218,7 +218,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
     transition: var(--transition-base);
     box-shadow: var(--shadow-colored);
 }
@@ -227,84 +226,6 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
-.icon-primary {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-    color: var(--bs-white);
-}
-
-/* --- Forms --- */
-.form-control {
-    border-radius: var(--border-radius);
-    border: 2px solid var(--bs-border-color);
-    padding: 0.75rem 1rem;
-    transition: var(--transition-base);
-    font-weight: var(--font-weight-normal);
-}
-
-.form-control:focus {
-    border-color: var(--bs-primary);
-    box-shadow: 0 0 0 0.2rem rgba(53, 151, 68, 0.25);
-    transform: translateY(-1px);
-}
-
-.form-label {
-    font-weight: var(--font-weight-medium);
-    color: var(--bs-text-dark);
-    margin-bottom: 0.5rem;
-}
-
-.form-floating > .form-control {
-    padding: 1rem 0.75rem;
-}
-
-.form-floating > label {
-    font-weight: var(--font-weight-normal);
-    color: var(--bs-secondary);
-}
-
-.form-section {
-    background: var(--gradient-light);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
-}
-
-.form-control:invalid {
-    border-color: var(--bs-danger);
-}
-
-.form-control:valid {
-    border-color: var(--bs-success);
-}
-
-/* --- Radio Cards --- */
-.radio-card {
-    background-color: var(--bs-white);
-    border: 1px solid var(--bs-border-color);
-    border-radius: var(--border-radius);
-    transition: var(--transition-base);
-    cursor: pointer;
-    padding: 1.5rem;
-}
-
-.radio-card:hover {
-    border-color: var(--bs-primary);
-    box-shadow: var(--shadow-sm);
-}
-
-.radio-card.checked {
-    border-color: var(--bs-primary);
-    background-color: rgba(53, 151, 68, 0.05);
-    box-shadow: 0 0 0 2px rgba(53, 151, 68, 0.25);
-}
-
-/* --- Feature Check --- */
 .feature-check {
     width: 24px;
     height: 24px;
@@ -317,66 +238,76 @@ body {
     color: var(--bs-white);
 }
 
-/* --- Navigation --- */
-.navbar {
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: var(--shadow-sm);
-}
+/* ==================================================
+   BUTTONS
+   ================================================== */
 
-.navbar-brand {
-    font-weight: var(--font-weight-bold);
-    font-size: 1.5rem;
-}
-
-.nav-link {
+.btn {
     font-weight: var(--font-weight-medium);
-    position: relative;
+    border-radius: var(--border-radius);
     transition: var(--transition-base);
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: var(--gradient-primary);
-    transition: var(--transition-base);
-    transform: translateX(-50%);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
-
-/* --- Hero Section --- */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
     position: relative;
-    padding: 5rem 0;
+    overflow: hidden;
+    border: none;
+    text-decoration: none;
 }
 
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
+.btn-primary {
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    box-shadow: var(--shadow-colored);
+    color: var(--bs-white) !important;
 }
 
-.hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    font-weight: var(--font-weight-normal);
-    margin-bottom: 2rem;
-    opacity: 0.9;
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(135deg, var(--bs-primary-dark) 0%, #002612 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    color: var(--bs-white) !important;
 }
 
-/* --- Dividers --- */
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+    background: transparent !important;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: white !important;
+    color: white !important;
+    transform: translateY(-1px);
+}
+
+.btn-light {
+    background: white !important;
+    color: var(--bs-primary) !important;
+    border: none !important;
+}
+
+.btn-light:hover,
+.btn-light:focus {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: var(--bs-primary) !important;
+    transform: translateY(-1px);
+}
+
+.btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    border-radius: var(--border-radius-lg);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+/* ==================================================
+   UTILITIES & HELPERS
+   ================================================== */
+
 .divider {
     width: 80px;
     height: 3px;
@@ -385,7 +316,10 @@ body {
     margin: 2rem auto;
 }
 
-/* --- Animations --- */
+/* ==================================================
+   ANIMATIONS
+   ================================================== */
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -397,46 +331,8 @@ body {
     }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
 .fade-in-up {
     animation: fadeInUp 0.8s ease-out;
-}
-
-.fade-in {
-    animation: fadeIn 0.6s ease-out;
-}
-
-.slide-in-right {
-    animation: slideInRight 0.6s ease-out;
-}
-
-.spinner-custom {
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-top: 2px solid var(--bs-white);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
 }
 
 /* ==================================================
@@ -451,10 +347,6 @@ body {
 
     .feature-card {
         margin-bottom: 2rem;
-        padding: 1.5rem;
-    }
-
-    .form-section {
         padding: 1.5rem;
     }
 
@@ -485,53 +377,12 @@ body {
         width: 48px;
         height: 48px;
     }
-}
 
-/* ==================================================
-   DARK MODE SUPPORT
-   ================================================== */
-
-@media (prefers-color-scheme: dark) {
-    body {
-        color: var(--bs-white);
-        background-color: var(--bs-gray-dark);
+    .feature-card h3 {
+        font-size: 1.25rem;
     }
 
-    .card {
-        background-color: rgba(33, 37, 41, 0.95);
-        color: var(--bs-white);
-    }
-
-    .feature-card {
-        background: rgba(33, 37, 41, 0.95);
-    }
-
-    .feature-card:hover {
-        background: rgba(33, 37, 41, 1);
-    }
-
-    .form-control {
-        background-color: rgba(33, 37, 41, 0.5);
-        border-color: rgba(255, 255, 255, 0.1);
-        color: var(--bs-white);
-    }
-
-    .form-control:focus {
-        background-color: rgba(33, 37, 41, 0.7);
-        color: var(--bs-white);
-    }
-
-    .form-section {
-        background-color: rgba(33, 37, 41, 0.5);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar {
-        background: rgba(33, 37, 41, 0.95) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .feature-icon {
-        background: var(--gradient-primary);
+    .feature-card p {
+        font-size: 0.875rem;
     }
 }
