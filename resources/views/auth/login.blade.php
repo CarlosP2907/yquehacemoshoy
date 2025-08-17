@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="login-page">
+<div class="login-page bg-light">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6 mt-5">
-                <div class="login-card shadow-sm">
+                <div class="login-card shadow-lg bg-dark" style="border-radius: 5%;"">
                     <div class="login-card-body p-4 p-md-5">
                         <!-- Page Title -->
                         <div class="text-center mb-4">
                             <h2 class="h3 fw-bold text-primary">Iniciar Sesión</h2>
-                            <p class="text-muted">Accede a tu cuenta para comenzar</p>
+                            <p class="text-white">Accede a tu cuenta para comenzar</p>
                         </div>
 
                         <!-- Session Status -->
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="text-center pt-3 border-top">
-                                <p class="text-muted small">
+                                <p class="text-white small">
                                     ¿No tienes cuenta? 
                                     <a href="{{ route('register') }}" class="text-primary fw-medium">
                                         Regístrate aquí
