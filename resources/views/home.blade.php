@@ -2,10 +2,10 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="hero-section">
+<section class="hero-section bg-dark text-white py-5">
     <div class="container">
         <div class="row justify-content-center text-center">
-            <div class="col-lg-10 col-xl-8">
+            <div class="col-lg-10 col-xl-8 mt-5">
                 <!-- Brand Header -->
                 <div class="mb-5 fade-in-up">
                     <h1 class="hero-title text-white">
@@ -53,7 +53,7 @@
                     <div class="col-lg-4 col-md-6 @if($loop->last) mx-auto @endif fade-in-up" style="animation-delay: {{ $feature['delay'] }};">
                         <div class="feature-card h-100 text-center">
                             <div class="feature-icon mx-auto">
-                                <i class="bi {{ $feature['icon'] }} text-white fs-4"></i>
+                                <i class="bi {{ $feature['icon'] }}  fs-4"></i>
                             </div>
                             <h3 class="h5 fw-semibold text-dark mb-3">{{ $feature['title'] }}</h3>
                             <p class="text-muted mb-0">{{ $feature['description'] }}</p>
@@ -82,6 +82,58 @@
     </div>
 </section>
 
+<!-- Nuestro Enfoque -->
+<section>
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <!-- Texto del enfoque - Columna izquierda -->
+            <div class="col-lg-6 mb-5 mb-lg-0">
+                <h2 class="display-6 fw-bold text-dark mb-4">Nuestro enfoque</h2>
+                <p class="lead text-muted">
+                    Creemos que cada día es una oportunidad para descubrir algo nuevo. Por eso, nos enfocamos en 
+                    <strong>conectar a las personas con experiencias auténticas</strong> que enriquezcan su vida cotidiana.
+                </p>
+                <p class="text-muted mb-4">
+                    Desde el restaurante familiar que lleva generaciones sirviendo los mejores casados, hasta el 
+                    nuevo café de especialidad que acaba de abrir en tu barrio. Nuestra misión es simple: 
+                    <em>hacer que cada salida sea memorable</em> y que cada negocio local tenga la oportunidad 
+                    de brillar.
+                </p>
+                <p class="text-muted fw-semibold mb-4">
+                    Porque cuando apoyas lo local, no solo descubres lugares increíbles, 
+                    <strong class="text-green">construyes comunidad</strong>.
+                </p>
+
+                @guest
+                    <a href="{{ route('register') }}" class="btn btn-primary btn-lg px-4 py-3">
+                        <i class="bi bi-person-plus me-2"></i>Comienza tu aventura
+                    </a>
+                @else
+                    <a href="{{ url('/dashboard') }}" class="btn btn-primary btn-lg px-4 py-3">
+                        <i class="bi bi-speedometer2 me-2"></i>Ir al Dashboard
+                    </a>
+                @endguest
+            </div>
+
+            <!-- Imagen - Columna derecha -->
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <!-- Imagen principal -->
+                    <img src="{{ asset('images/enfoque-hero.jpg') }}" 
+                         alt="Experiencias auténticas en Costa Rica" 
+                         class="img-fluid rounded-3 shadow-lg w-100"
+                         style="border-radius: var(--border-radius-xl);
+                                max-height: 400px; 
+                                object-fit: cover; 
+                                object-position: center;
+                                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+                                ">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Features Section -->
 <section id="about" class="py-5 bg-light">
     <div class="container py-5">
@@ -103,7 +155,7 @@
                 <div class="card border-0 h-100">
                     <div class="card-body p-5">
                         <div class="d-flex align-items-start mb-4">
-                            <div class="feature-icon me-3" style="margin-bottom: 20px; width: 50px; height: 50px;">
+                            <div class="feature-icon-user me-3" style="margin-bottom: 20px; width: 50px; height: 50px;">
                                 <i class="bi bi-person-heart text-white"></i>
                             </div>
                             <h3 class="h3 fw-bold text-dark mb-0" style="margin-top: 10px;">Para Usuarios</h3>
@@ -195,27 +247,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Stats Section -->
-        <div class="row text-center">
-            @php
-                $stats = [
-                    ['number' => '500+', 'label' => 'Lugares Registrados'],
-                    ['number' => '1,200+', 'label' => 'Usuarios Activos'],
-                    ['number' => '95%', 'label' => 'Satisfacción'],
-                    ['number' => '24/7', 'label' => 'Soporte']
-                ];
-            @endphp
-
-            @foreach($stats as $stat)
-            <div class="col-md-3 col-6 mb-4">
-                <div class="p-3">
-                    <h3 class="display-5 fw-bold text-primary mb-2">{{ $stat['number'] }}</h3>
-                    <p class="text-muted mb-0">{{ $stat['label'] }}</p>
-                </div>
-            </div>
-            @endforeach
         </div>
     </div>
 </section>

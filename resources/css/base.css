@@ -1,0 +1,42 @@
+/* ==================================================
+   BASE STYLES
+   ================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: var(--bs-text-dark);
+}
+
+/* Text Utilities */
+.text-green {
+    color: var(--bs-primary) !important;
+}
+
+.text-white-80 {
+    color: rgba(255, 255, 255, var(--opacity-80)) !important;
+}
+
+.text-white-90 {
+    color: rgba(255, 255, 255, var(--opacity-90)) !important;
+}
+
+.text-features {
+    color: var(--bs-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Divider */
+.divider {
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 1.5rem auto;
+    border-radius: 2px;
+}

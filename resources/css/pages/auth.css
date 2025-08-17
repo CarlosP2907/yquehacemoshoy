@@ -1,0 +1,24 @@
+/* ==================================================
+   AUTH PAGES
+   ================================================== */
+
+.login-page body,
+.register-page body {
+    background: var(--gradient-hero);
+    min-height: 100vh;
+}
+
+.login-page .card,
+.register-page .card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-xl);
+}
+
+.login-page .btn-primary,
+.register-page .btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    font-weight: var(--font-weight-semibold);
+}

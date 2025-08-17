@@ -1,0 +1,41 @@
+/* ==================================================
+   NAVIGATION
+   ================================================== */
+
+.navbar {
+    background: var(--gradient-hero);
+    box-shadow: var(--shadow);
+}
+
+.nav-link {
+    color: var(--bs-white);
+    transition: var(--transition-base);
+}
+
+.nav-link:hover {
+    color: var(--bs-primary-light);
+}
+
+.navbar-brand {
+    font-weight: var(--font-weight-bold);
+    color: var(--bs-white);
+    transition: var(--transition-base);
+}
+
+.navbar-brand:hover {
+    color: var(--bs-primary-light);
+}
+
+.navbar-toggler {
+    color: white;
+    border: none;
+}
+
+.navbar-toggler:hover {
+    background: var(--bs-primary-dark);
+}
+
+/* Cambiar color de las rayas del toggler a blanco */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}

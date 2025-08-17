@@ -1,0 +1,5 @@
+footer{
+    background: var(--bs-dark);
+    color: var(--bs-white);
+    padding: 2rem 0;
+}

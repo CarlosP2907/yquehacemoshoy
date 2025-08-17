@@ -1,0 +1,61 @@
+/* ==================================================
+   BUTTONS
+   ================================================== */
+
+.btn {
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--border-radius);
+    transition: var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    border-color: var(--bs-primary);
+    color: var(--bs-white);
+    box-shadow: var(--shadow-colored);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--bs-primary-dark);
+    border-color: var(--bs-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-outline-light {
+    color: var(--bs-white);
+    border-color: rgba(255, 255, 255, 0.5);
+    background: transparent;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background: var(--bs-white);
+    color: var(--bs-primary);
+    border-color: var(--bs-white);
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background: var(--bs-white);
+    color: var(--bs-primary);
+    border-color: var(--bs-white);
+}
+
+.btn-light:hover,
+.btn-light:focus {
+    background: var(--bs-gray-light);
+    color: var(--bs-primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+}
+
+.btn:active {
+    transform: translateY(0) !important;
+}

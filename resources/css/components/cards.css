@@ -1,0 +1,111 @@
+/* ==================================================
+   CARDS
+   ================================================== */
+
+.card {
+    border: none;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    transition: var(--transition-base);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card.bg-primary {
+    background: var(--gradient-primary) !important;
+    color: var(--bs-white);
+}
+
+.feature-icon-user {
+    background: var(--gradient-primary);
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-card {
+    background: var(--bs-white);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow);
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: var(--transition-base);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card h3 {
+    color: var(--bs-primary);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--bs-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--bs-white);
+    margin-bottom: 1.5rem;
+    transition: var(--transition-base);
+    background: var(--gradient-primary);
+    border-radius: 100%;
+    width: 64px;
+    height: 64px;
+    
+    /* Centrar el icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Opcional: para asegurar que esté centrado en la card */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card:hover .feature-icon {
+    color: var(--bs-primary-dark);
+    border-radius: 100%;
+    transform: scale(1.1);
+}
+
+.feature-check {
+    color: var(--bs-success);
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
