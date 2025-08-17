@@ -103,10 +103,10 @@
                 <div class="card border-0 h-100">
                     <div class="card-body p-5">
                         <div class="d-flex align-items-start mb-4">
-                            <div class="feature-icon me-3" style="width: 50px; height: 50px;">
+                            <div class="feature-icon me-3" style="margin-bottom: 20px; width: 50px; height: 50px;">
                                 <i class="bi bi-person-heart text-white"></i>
                             </div>
-                            <h3 class="h3 fw-bold text-dark mb-0">Para Usuarios</h3>
+                            <h3 class="h3 fw-bold text-dark mb-0" style="margin-top: 10px;">Para Usuarios</h3>
                         </div>
                         
                         @php
@@ -152,10 +152,10 @@
                 <div class="card border-0 h-100 bg-primary text-white">
                     <div class="card-body p-5">
                         <div class="d-flex align-items-center mb-4">
-                            <div class="bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 50px; height: 50px;">
+                            <div class="bg-white bg-opacity-20 rounded-circle d-flex align-items-center justify-content-center me-3" style="margin-bottom: 20px; width: 50px; height: 50px;">
                                 <i class="bi bi-building text-green"></i>
                             </div>
-                            <h3 class="h3 fw-bold text-white mb-0">Para Empresas</h3>
+                            <h3 class="h3 fw-bold text-white" style="margin-bottom: 20px;">Para Empresas</h3>
                         </div>
                         
                         @php

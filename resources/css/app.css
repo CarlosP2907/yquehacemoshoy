@@ -100,7 +100,7 @@ body {
    ================================================== */
 
 .hero-section {
-    background: var(--gradient-hero);
+    background: var(--bs-dark);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -220,6 +220,7 @@ body {
     justify-content: center;
     transition: var(--transition-base);
     box-shadow: var(--shadow-colored);
+    margin-bottom: 20px;
 }
 
 .feature-card:hover .feature-icon {
@@ -302,6 +303,40 @@ body {
 
 .btn:active {
     transform: scale(0.98);
+}
+
+/* ==================================================
+    Navigation
+   ================================================== */
+
+.navbar {
+    background: var(--gradient-hero);
+    box-shadow: var(--shadow);
+}
+
+.nav-link {
+    color: var(--bs-white);
+    transition: var(--transition-base);
+}
+
+.nav-link:hover {
+    color: var(--bs-dark);
+}
+
+.navbar-brand {
+    font-weight: var(--font-weight-bold);
+    color: var(--bs-white);
+    transition: var(--transition-base);
+}
+
+/*footer
+   ==================================================
+   FOOTER
+   ================================================== */
+
+footer {
+    background: var(--bs-dark);
+    color: var(--bs-white);
 }
 
 /* ==================================================
