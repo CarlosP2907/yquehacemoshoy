@@ -1,0 +1,36 @@
+{
+  "public/images/auth-background.jpg": {
+    "file": "assets/auth-background-iwWwoMse.jpg",
+    "src": "public/images/auth-background.jpg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-BlgReNeg.css",
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/css/pages/auth.css": {
+    "file": "assets/auth-DJk1GRoU.css",
+    "src": "resources/css/pages/auth.css",
+    "isEntry": true,
+    "names": [
+      "auth.css"
+    ]
+  },
+  "resources/css/pages/home.css": {
+    "file": "assets/home-DX4ZOpcQ.css",
+    "src": "resources/css/pages/home.css",
+    "isEntry": true,
+    "names": [
+      "home.css"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BzQckU9k.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  }
+}
