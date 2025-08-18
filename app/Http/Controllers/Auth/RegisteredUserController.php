@@ -34,9 +34,19 @@ class RegisteredUserController extends Controller
     {
         $userType = $request->input('user_type', 'user');
         
+        // Debug agresivo
+        \Log::info('Registration attempt', [
+            'user_type' => $userType,
+            'email' => $request->input('email'),
+            'all_inputs' => $request->all()
+        ]);
+        
+        // Forzar la creación para debug
         if ($userType === 'company') {
+            \Log::info('Going to storeCompany method');
             return $this->storeCompany($request);
         } else {
+            \Log::info('Going to storeUser method because user_type = ' . $userType);
             return $this->storeUser($request);
         }
     }
@@ -48,7 +58,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users', 'unique:companies'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'location' => ['nullable', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'max:20'],
@@ -89,15 +99,24 @@ class RegisteredUserController extends Controller
      */
     private function storeCompany(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:companies'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'company_location' => ['nullable', 'string', 'max:255'],
-            'company_phone' => ['nullable', 'string', 'max:20'],
-            'website' => ['nullable', 'url', 'max:255'],
-            'description' => ['nullable', 'string', 'max:1000'],
-        ]);
+        \Log::info('In storeCompany method');
+        
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:companies', 'unique:users'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+                'company_location' => ['nullable', 'string', 'max:255'],
+                'company_phone' => ['nullable', 'string', 'max:20'],
+                'website' => ['nullable', 'url', 'max:255'],
+                'description' => ['nullable', 'string', 'max:1000'],
+            ]);
+            
+            \Log::info('Company validation passed');
+        } catch (\Exception $e) {
+            \Log::error('Company validation failed', ['error' => $e->getMessage()]);
+            throw $e;
+        }
 
         $company = Company::create([
             'name' => $request->name,
@@ -111,6 +130,8 @@ class RegisteredUserController extends Controller
             'verified' => false,
             'email_verified_at' => now(), // Auto-verify for MVP
         ]);
+
+        \Log::info('Company created', ['company_id' => $company->id, 'company_email' => $company->email]);
 
         // Assign company role
         $company->assignRole('company');
@@ -127,8 +148,11 @@ class RegisteredUserController extends Controller
         }
 
         event(new Registered($company));
-        Auth::guard('web')->login($company);
+        Auth::guard('company')->login($company);
+        
+        \Log::info('Company logged in, redirecting to company-dashboard');
 
-        return redirect(route('dashboard', absolute: false));
+        // Redirección forzada con URL completa
+        return redirect()->to('/company-dashboard');
     }
 }

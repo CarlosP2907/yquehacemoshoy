@@ -28,6 +28,18 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Redirigir según el tipo de usuario
+        $user = Auth::user();
+        $company = Auth::guard('company')->user();
+        
+        if ($company) {
+            return redirect()->intended(route('company-dashboard', absolute: false));
+        } else if ($user) {
+            // Redirigir al dashboard que tiene la lógica inteligente
+            return redirect()->intended(route('dashboard', absolute: false));
+        }
+
+        // Fallback
         return redirect()->intended(route('dashboard', absolute: false));
     }
 
@@ -37,6 +49,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
+        Auth::guard('company')->logout();
 
         $request->session()->invalidate();
 

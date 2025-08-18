@@ -14,6 +14,7 @@ class Place extends Model
     protected $fillable = [
         'name',
         'place_type_id',
+        'company_id',
         'description',
         'location',
         'longitude',
@@ -21,6 +22,7 @@ class Place extends Model
         'image',
         'phone',
         'website',
+        'status',
         'rating',
         'price_range',
     ];
@@ -44,11 +46,81 @@ class Place extends Model
     }
 
     /**
+     * Relación con empresa
+     */
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
+
+    /**
      * Relación con intereses (many to many)
      */
     public function interests()
     {
         return $this->belongsToMany(Interest::class, 'place_interest');
+    }
+
+    /**
+     * Relación con horarios
+     */
+    public function schedules()
+    {
+        return $this->hasMany(PlaceSchedule::class)->orderByRaw("
+            CASE day_of_week
+                WHEN 'monday' THEN 1
+                WHEN 'tuesday' THEN 2
+                WHEN 'wednesday' THEN 3
+                WHEN 'thursday' THEN 4
+                WHEN 'friday' THEN 5
+                WHEN 'saturday' THEN 6
+                WHEN 'sunday' THEN 7
+            END
+        ");
+    }
+
+    /**
+     * Verificar si está abierto ahora
+     */
+    public function isOpenNow()
+    {
+        $dayNames = [
+            0 => 'sunday',
+            1 => 'monday',
+            2 => 'tuesday',
+            3 => 'wednesday',
+            4 => 'thursday',
+            5 => 'friday',
+            6 => 'saturday'
+        ];
+        
+        $today = $dayNames[now()->dayOfWeek];
+        $todaySchedule = $this->schedules()->where('day_of_week', $today)->first();
+        
+        if (!$todaySchedule) {
+            return false; // Sin horario definido
+        }
+
+        return $todaySchedule->isOpenAt();
+    }
+
+    /**
+     * Obtener el horario de hoy
+     */
+    public function getTodaySchedule()
+    {
+        $dayNames = [
+            0 => 'sunday',
+            1 => 'monday',
+            2 => 'tuesday',
+            3 => 'wednesday',
+            4 => 'thursday',
+            5 => 'friday',
+            6 => 'saturday'
+        ];
+        
+        $today = $dayNames[now()->dayOfWeek];
+        return $this->schedules()->where('day_of_week', $today)->first();
     }
 
     /**
@@ -79,11 +151,30 @@ class Place extends Model
         ->havingRaw('distance <= ?', [$radius])
         ->orderBy('distance');
     }
-}space App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+    /**
+     * Scope para filtrar por estado
+     */
+    public function scopeOpen($query)
+    {
+        return $query->where('status', 'open');
+    }
 
-class Place extends Model
-{
-    //
+    /**
+     * Scope para filtrar por tipo de lugar
+     */
+    public function scopeByType($query, $placeTypeId)
+    {
+        return $query->where('place_type_id', $placeTypeId);
+    }
+
+    /**
+     * Scope para filtrar por intereses
+     */
+    public function scopeByInterests($query, $interestIds)
+    {
+        return $query->whereHas('interests', function ($q) use ($interestIds) {
+            $q->whereIn('interests.id', $interestIds);
+        });
+    }
 }

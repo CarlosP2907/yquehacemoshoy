@@ -11,7 +11,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        $middleware->alias([
+            'redirect.user.type' => \App\Http\Middleware\RedirectBasedOnUserType::class,
+            'admin' => \App\Http\Middleware\AdminMiddleware::class,
+        ]);
+        
+        // Temporalmente comentado para debug
+        // $middleware->web(append: [
+        //     \App\Http\Middleware\RedirectBasedOnUserType::class,
+        // ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

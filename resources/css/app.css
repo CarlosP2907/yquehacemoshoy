@@ -9,6 +9,9 @@
 @import 'components/navigation.css';
 @import 'components/forms.css';
 @import 'components/footer.css';
+@import 'components/dashboard.css';
 @import 'utilities/animations.css';
 @import 'utilities/responsive.css';
 @import 'pages/auth.css';
+@import 'pages/freeUser-template.css';
+@import 'pages/company-dashboard.css';

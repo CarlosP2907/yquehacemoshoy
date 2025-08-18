@@ -8,7 +8,7 @@
             <div class="col-lg-10 col-xl-8 mt-5">
                 <!-- Brand Header -->
                 <div class="mb-5 fade-in-up">
-                    <h1 class="hero-title text-white">
+                    <h1 class="hero-title text-white fw-bold mb-3">
                         ¿Qué Hacemos <span class="text-green">Hoy?</span>
                     </h1>
                     <div class="divider"></div>

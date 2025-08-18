@@ -55,7 +55,7 @@ class LoginRequest extends FormRequest
         // If user authentication fails, try company authentication
         $company = \App\Models\Company::where('email', $credentials['email'])->first();
         if ($company && \Illuminate\Support\Facades\Hash::check($credentials['password'], $company->password)) {
-            Auth::login($company, $remember);
+            Auth::guard('company')->login($company, $remember);
             RateLimiter::clear($this->throttleKey());
             return;
         }

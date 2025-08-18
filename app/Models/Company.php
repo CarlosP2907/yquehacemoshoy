@@ -50,6 +50,14 @@ class Company extends Authenticatable
     }
 
     /**
+     * Relación con lugares
+     */
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
+
+    /**
      * Relación con suscripciones
      */
     public function subscriptions()

@@ -1,0 +1,49 @@
+/* ==================================================
+   FREE USER TEMPLATE SPECIFIC STYLES
+   ================================================== */
+
+/* Free user specific sidebar colors */
+.freeuser-dashboard .sidebar {
+    background: linear-gradient(180deg, var(--bs-success) 0%, var(--bs-success-dark, #198754) 100%);
+}
+
+.freeuser-dashboard .sidebar-nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-right: 4px solid var(--bs-info);
+}
+
+.freeuser-dashboard .sidebar-nav-link.active::before {
+    background: var(--bs-info);
+}
+
+.freeuser-dashboard .content-title {
+    color: var(--bs-success);
+}
+
+.freeuser-dashboard .stats-card {
+    border-left-color: var(--bs-success);
+}
+
+.freeuser-dashboard .dashboard-card-icon {
+    background: linear-gradient(45deg, var(--bs-success), var(--bs-success-dark, #198754));
+}
+
+/* Free user welcome screen customization */
+.freeuser-welcome .welcome-icon {
+    color: var(--bs-info);
+}
+
+/* Free user specific sidebar sections */
+.freeuser-sidebar .sidebar-nav-section-title {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Free user form styling */
+.freeuser-form .form-card .card-header {
+    background: linear-gradient(45deg, var(--bs-success), var(--bs-success-dark, #198754));
+}
+
+/* Espaciado especial para el primer item después de una sección */
+.sidebar-nav-section + .sidebar-nav-item .sidebar-nav-link {
+    margin-top: 0.25rem;
+}

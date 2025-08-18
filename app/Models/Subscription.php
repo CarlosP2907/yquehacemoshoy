@@ -59,11 +59,4 @@ class Subscription extends Model
             && $this->start_date <= now()
             && (is_null($this->end_date) || $this->end_date >= now());
     }
-}space App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Subscription extends Model
-{
-    //
 }
