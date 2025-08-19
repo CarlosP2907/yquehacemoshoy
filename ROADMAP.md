@@ -137,16 +137,78 @@ User registra en Event
 - [ ] Fotos en reseñas
 - [ ] Respuestas de empresas a reseñas
 
-### 4. Sistema de Búsqueda y Filtros (PRIORIDAD MEDIA)
+### 4. 🔍 SEO y Descubribilidad Web (PRIORIDAD ALTA - AGREGADO HOY) ⭐
+- [ ] **SEO Técnico Fundamental:**
+  - [ ] URLs amigables para lugares (`/lugares/restaurante-central-san-jose`)
+  - [ ] URLs amigables para empresas (`/empresas/nombre-empresa`)
+  - [ ] URLs amigables para eventos (`/eventos/concierto-jazz-agosto-2025`)
+  - [ ] Meta titles dinámicos optimizados por página
+  - [ ] Meta descriptions personalizadas con keywords locales
+  - [ ] Meta keywords basadas en intereses y ubicación
+  - [ ] Canonical URLs para evitar contenido duplicado
+  - [ ] Robots.txt optimizado
+  - [ ] Sitemap.xml automático (lugares, empresas, eventos)
+
+- [ ] **Schema Markup (Datos Estructurados):**
+  - [ ] LocalBusiness schema para empresas
+  - [ ] Place/Restaurant/Entertainment schema para lugares
+  - [ ] Event schema para eventos
+  - [ ] Organization schema para la plataforma
+  - [ ] Review/Rating schema para calificaciones
+  - [ ] OpeningHours schema (¡ya tenemos los horarios!) ⭐
+  - [ ] Address/Location schema con coordenadas
+
+- [ ] **Open Graph y Redes Sociales:**
+  - [ ] OG tags dinámicos por lugar/evento
+  - [ ] OG images automáticas para lugares
+  - [ ] Twitter Cards para mejor sharing
+  - [ ] WhatsApp preview optimizado
+  - [ ] Facebook sharing optimizado
+  - [ ] Instagram-friendly image formats
+
+- [ ] **SEO Local (CRÍTICO para tu app):**
+  - [ ] Integración con Google My Business API
+  - [ ] Keywords geo-localizadas (`"restaurantes en san josé"`)
+  - [ ] Páginas por ciudad/zona (`/san-jose`, `/cartago`, etc.)
+  - [ ] Breadcrumbs con ubicación (`Inicio > San José > Restaurantes`)
+  - [ ] Local business directories submission
+  - [ ] Geo-targeted content
+
+- [ ] **Analytics y Medición:**
+  - [ ] Google Analytics 4 integration
+  - [ ] Google Search Console setup
+  - [ ] Core Web Vitals monitoring
+  - [ ] SEO performance tracking
+  - [ ] Keyword ranking monitoring
+  - [ ] Local search performance tracking
+
+- [ ] **Performance SEO:**
+  - [ ] Core Web Vitals optimization
+  - [ ] Image lazy loading y optimization
+  - [ ] Critical CSS inlining
+  - [ ] JavaScript defer/async optimization
+  - [ ] CDN para assets estáticos
+  - [ ] Compression (Gzip/Brotli)
+
+### 4.5 Content Marketing para SEO (COMPLEMENTARIO)
+- [ ] **Blog/Guías de la Ciudad:**
+  - [ ] "10 mejores restaurantes en San José"
+  - [ ] "Actividades familiares en Costa Rica"
+  - [ ] "Eventos de fin de semana en [Ciudad]"
+  - [ ] Guías por temporada/festivales
+- [ ] **Landing Pages Geo-específicas:**
+  - [ ] Páginas por ciudad principal
+  - [ ] Páginas por tipo de actividad
+  - [ ] Páginas por interés específico
+### 5. Sistema de Búsqueda y Filtros (PRIORIDAD MEDIA)
 - [ ] Búsqueda por texto
 - [ ] Filtros por categoría/tipo
-- [ ] Filtros por precio
 - [ ] Filtros por distancia
 - [ ] Filtros por calificación
 - [ ] Búsqueda avanzada combinada
 - [ ] Autocompletado en búsquedas
 
-### 5. Mapas y Geolocalización (PRIORIDAD MEDIA)
+### 6. Mapas y Geolocalización (PRIORIDAD MEDIA)
 - [ ] Integración con Google Maps o Leaflet
 - [ ] Mostrar lugares en mapa
 - [ ] Rutas desde ubicación actual
@@ -221,14 +283,6 @@ User registra en Event
 - [ ] Query optimization
 - [ ] Lazy loading para relaciones
 
-### 13. SEO y Marketing Web
-- [ ] URLs amigables
-- [ ] Meta tags dinámicos
-- [ ] Open Graph para redes sociales
-- [ ] Sitemap XML
-- [ ] Schema markup
-- [ ] Google Analytics integration
-
 ## 🛡️ SEGURIDAD Y CALIDAD
 
 ### 14. Seguridad Avanzada
@@ -281,6 +335,15 @@ User registra en Event
    - [ ] Dashboard "Qué hacer hoy"
    - [ ] Filtros por ubicación
 
+4. **🆕 SEO Básico - QUICK WINS** (Semana 1-2 - AGREGADO HOY) ⭐
+   - [ ] **URLs amigables** para lugares y empresas
+   - [ ] **Meta tags dinámicos** en todas las páginas
+   - [ ] **Schema markup básico** (LocalBusiness, Place, Event)
+   - [ ] **Google Analytics** integration
+   - [ ] **Sitemap XML** automático
+   - [ ] **Open Graph** para sharing en redes sociales
+   - [ ] **SEO local básico** con keywords geo-localizadas
+
 ---
 
 **Última actualización:** 17 de Agosto, 2025 - 🔥 ¡SESIÓN ÉPICA COMPLETADA!
@@ -307,3 +370,10 @@ User registra en Event
 - **Sistema de fidelización empresarial** diseñado ⭐
 - **Business logic de ownership** clarificada ⭐
 - **Flujo de recomendaciones multi-nivel** planificado ⭐
+
+### 🔍 SEO STRATEGY AGREGADA - ¡CRÍTICO PARA DESCUBRIBILIDAD! ⭐
+- **SEO Local** es VITAL para plataformas de actividades/lugares ⭐
+- **Schema markup** ayudará a aparecer en Google Maps/Local Search ⭐
+- **Open Graph** permitirá sharing viral en WhatsApp/Facebook ⭐
+- **URLs amigables** mejorarán ranking y UX significativamente ⭐
+- **Content geo-localizado** capturará búsquedas como "qué hacer en San José" ⭐
